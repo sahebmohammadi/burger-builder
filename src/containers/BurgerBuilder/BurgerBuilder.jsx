@@ -45,13 +45,19 @@ const BurgerBuilder = () => {
     const newPrice = oldPrice - priceDecrease;
     setTotalPrice(newPrice);
   };
-
+  //! DISABLE REMOVE BUTTON WITH NO INGREDIENT
+  const disabledInfo = { ...ingredients };
+  for (let key in disabledInfo) {
+    disabledInfo[key] = disabledInfo[key] <= 0;
+  }
   return (
     <>
       <Burger ingredients={ingredients} />
       <BuildControls
         onRemoveIngredient={removeIngredientHandler}
         onAddIngredient={addIngredientHandler}
+        disabledInfo={disabledInfo}
+        price={totalPrice}
       />
     </>
   );

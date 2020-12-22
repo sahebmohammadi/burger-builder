@@ -9,9 +9,15 @@ const controls = [
   { label: "cheese", type: "cheese" },
 ];
 
-const BuildControls = ({ onRemoveIngredient, onAddIngredient }) => {
+const BuildControls = ({
+  onRemoveIngredient,
+  onAddIngredient,
+  disabledInfo,
+  price,
+}) => {
   return (
     <div className={classes.wrapper}>
+      <p>totla price : {price.toFixed(2)}</p>
       {controls.map((item) => {
         const { type, label } = item;
         return (
@@ -20,6 +26,7 @@ const BuildControls = ({ onRemoveIngredient, onAddIngredient }) => {
             key={label}
             onRemoveIngredient={() => onRemoveIngredient(type)}
             onAddIngredient={() => onAddIngredient(type)}
+            disabled={disabledInfo[type]}
           />
         );
       })}
