@@ -1,0 +1,20 @@
+.wrapper {
+  /* width: 50%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+.wrapper > div{
+    width: 100px;
+}
+.wrapper button {
+  display: block;
+  padding: 5px;
+  margin: 0 5px;
+  width: 80px;
+  cursor: pointer;
+  border: 1px solid #aa6817;
+  outline: none;
+}
+
