@@ -20,6 +20,20 @@ const BurgerBuilder = () => {
     bacon: 0,
   });
   const [totalPrice, setTotalPrice] = useState(4);
+  const [isPurchasable, setIsPurchasable] = useState(false);
+
+  // ? update purchase state :
+  const updatePurchaseStat = (oldIngredients) => {
+    // const oldIngredients = { ...ingredients };
+    const sum = Object.keys(oldIngredients)
+      .map((igKey) => {
+        return oldIngredients[igKey];
+      })
+      .reduce((el, sum) => {
+        return el + sum;
+      }, 0);
+    setIsPurchasable(sum > 0);
+  };
 
   const addIngredientHandler = (type) => {
     let updatedIngredient = { ...ingredients };
@@ -30,6 +44,7 @@ const BurgerBuilder = () => {
     const priceAddition = INGREDIENT_PRICES[type];
     const newPrice = oldPrice + priceAddition;
     setTotalPrice(newPrice);
+    updatePurchaseStat(updatedIngredient);
   };
 
   const removeIngredientHandler = (type) => {
@@ -39,11 +54,12 @@ const BurgerBuilder = () => {
     }
     updatedIngredient[type] = updatedIngredient[type] - 1;
     setIngredients(updatedIngredient);
-    // ? UPDATE THE PRIC
+    // ? UPDATE THE PRICE
     const oldPrice = totalPrice;
     const priceDecrease = INGREDIENT_PRICES[type];
     const newPrice = oldPrice - priceDecrease;
     setTotalPrice(newPrice);
+    updatePurchaseStat(updatedIngredient);
   };
   //! DISABLE REMOVE BUTTON WITH NO INGREDIENT
   const disabledInfo = { ...ingredients };
@@ -58,6 +74,7 @@ const BurgerBuilder = () => {
         onAddIngredient={addIngredientHandler}
         disabledInfo={disabledInfo}
         price={totalPrice}
+        isPurchasable={isPurchasable}
       />
     </>
   );
