@@ -9,10 +9,10 @@ const BuildControl = ({
   return (
     <div className={classes.wrapper}>
       <div>{label}</div>
-      <button onClick={onRemoveIngredient} disabled={disabled}>
+      <button onClick={onRemoveIngredient} disabled={disabled} className={classes.remove}>
         less
       </button>
-      <button onClick={onAddIngredient}>more</button>
+      <button onClick={onAddIngredient} className={classes.add}>more</button>
     </div>
   );
 };

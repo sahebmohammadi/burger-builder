@@ -71,6 +71,9 @@ const BurgerBuilder = () => {
   const cancelPurchasingHandler = () => {
     setPurchasing(false);
   };
+  const continuePurchasingHandler = () => {
+    alert("great! purchase continue ...");
+  };
   //! DISABLE REMOVE BUTTON WITH NO INGREDIENT
   const disabledInfo = { ...ingredients };
   for (let key in disabledInfo) {
@@ -79,7 +82,12 @@ const BurgerBuilder = () => {
   return (
     <>
       <Modal show={purchasing} onClick={cancelPurchasingHandler}>
-        <OrderSummary ingredients={ingredients} />
+        <OrderSummary
+          ingredients={ingredients}
+          purchaseCanceled={cancelPurchasingHandler}
+          purchaseContinued={continuePurchasingHandler}
+          totalPrice={totalPrice}
+        />
       </Modal>
 
       <Burger ingredients={ingredients} />

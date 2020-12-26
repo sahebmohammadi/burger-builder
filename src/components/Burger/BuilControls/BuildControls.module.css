@@ -18,6 +18,8 @@
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.065);
   color: #966909;
   background-color: #dad735;
+  border-radius: 10px;
+  box-shadow: 0 9px 12px rgba(0, 0, 0, 0.065);
 }
 .order:hover,
 .order:active {

@@ -5,8 +5,8 @@
   align-items: center;
   margin: 5px 0;
 }
-.wrapper > div{
-    width: 100px;
+.wrapper > div {
+  width: 100px;
 }
 .wrapper button {
   display: block;
@@ -14,7 +14,18 @@
   margin: 0 5px;
   width: 80px;
   cursor: pointer;
-  border: 1px solid #aa6817;
+  /* border: 1px solid #aa6817; */
   outline: none;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.065);
 }
-
+.add{
+  background-color: #03dac5;
+  border: none;
+  color: #fff;
+}
+.remove{
+  background-color: #efefef;
+  border: 1px solid #03dac5;
+}

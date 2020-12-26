@@ -1,0 +1,22 @@
+.button {
+  outline: none;
+  border: none;
+  box-shadow: 0 9px 12px rgba(0, 0, 0, 0.065);
+  width: 80px;
+  font: inherit;
+  font-family: Bold;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  /* color: #444; */
+}
+.success {
+  background-color: #03dac5;
+  color: #fff;
+}
+
+.cancel {
+  color: #03dac5;
+  background-color: #fff;
+  border: 1px solid #03dac5;
+}
