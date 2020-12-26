@@ -10,6 +10,9 @@ const NavigationItems = () => {
       <NavigationItem link="/" isActive>
         checkout
       </NavigationItem>
+      <NavigationItem link="/" isActive>
+        checkout
+      </NavigationItem>
     </ul>
   );
 };
