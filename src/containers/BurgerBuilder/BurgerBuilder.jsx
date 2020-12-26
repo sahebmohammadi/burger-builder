@@ -2,6 +2,8 @@ import React, { useState } from "react";
 //  import components
 import BuildControls from "../../components/Burger/BuilControls/BuildControls";
 import Burger from "../../components/Burger/Burger";
+import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
+import Modal from "./../../components/UI/Modal/Modal";
 
 // ? GLOBAL VARIABLE :
 const INGREDIENT_PRICES = {
@@ -21,6 +23,7 @@ const BurgerBuilder = () => {
   });
   const [totalPrice, setTotalPrice] = useState(4);
   const [isPurchasable, setIsPurchasable] = useState(false);
+  const [purchasing, setPurchasing] = useState(false);
 
   // ? update purchase state :
   const updatePurchaseStat = (oldIngredients) => {
@@ -61,6 +64,13 @@ const BurgerBuilder = () => {
     setTotalPrice(newPrice);
     updatePurchaseStat(updatedIngredient);
   };
+
+  const purchaseHandler = () => {
+    setPurchasing(true);
+  };
+  const cancelPurchasingHandler = () => {
+    setPurchasing(false);
+  };
   //! DISABLE REMOVE BUTTON WITH NO INGREDIENT
   const disabledInfo = { ...ingredients };
   for (let key in disabledInfo) {
@@ -68,6 +78,10 @@ const BurgerBuilder = () => {
   }
   return (
     <>
+      <Modal show={purchasing} onClick={cancelPurchasingHandler}>
+        <OrderSummary ingredients={ingredients} />
+      </Modal>
+
       <Burger ingredients={ingredients} />
       <BuildControls
         onRemoveIngredient={removeIngredientHandler}
@@ -75,6 +89,7 @@ const BurgerBuilder = () => {
         disabledInfo={disabledInfo}
         price={totalPrice}
         isPurchasable={isPurchasable}
+        orderd={purchaseHandler}
       />
     </>
   );
