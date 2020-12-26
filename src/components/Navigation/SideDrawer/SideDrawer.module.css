@@ -1,0 +1,29 @@
+.sideDrawer {
+  position: fixed;
+  width: 280px;
+  max-width: 70%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /* z-index > z-index of backdrop */
+  z-index: 200;
+  background-color: #efefef;
+  box-sizing: border-box;
+  padding: 32px 16px;
+  transition: transform 0.4s ease-in-out;
+}
+.open {
+  transform: translateX(0);
+}
+.cloose {
+  transform: translateX(-100%);
+}
+.logo {
+  height: 11%;
+  margin-bottom: 32px;
+}
+@media (min-width: 500px) {
+  .sideDrawer {
+    display: none;
+  }
+}

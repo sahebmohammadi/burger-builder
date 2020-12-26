@@ -7,12 +7,8 @@ const NavigationItems = () => {
       <NavigationItem link="/" isActive>
         Burger Builder
       </NavigationItem>
-      <NavigationItem link="/" isActive>
-        checkout
-      </NavigationItem>
-      <NavigationItem link="/" isActive>
-        checkout
-      </NavigationItem>
+      <NavigationItem link="/">checkout</NavigationItem>
+      <NavigationItem link="/">checkout</NavigationItem>
     </ul>
   );
 };
