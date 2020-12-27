@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 //  import components
 import BuildControls from "../../components/Burger/BuilControls/BuildControls";
 import Burger from "../../components/Burger/Burger";
@@ -79,9 +79,10 @@ const BurgerBuilder = () => {
   for (let key in disabledInfo) {
     disabledInfo[key] = disabledInfo[key] <= 0;
   }
-  return (
-    <>
+  const modalRenderPerformancer = useMemo(
+    () => (
       <Modal show={purchasing} onClick={cancelPurchasingHandler}>
+        {console.log("purchasing ...")}
         <OrderSummary
           ingredients={ingredients}
           purchaseCanceled={cancelPurchasingHandler}
@@ -89,7 +90,20 @@ const BurgerBuilder = () => {
           totalPrice={totalPrice}
         />
       </Modal>
-
+    ),
+    [purchasing]
+  );
+  return (
+    <>
+      {/* <Modal show={purchasing} onClick={cancelPurchasingHandler}>
+        <OrderSummary
+          ingredients={ingredients}
+          purchaseCanceled={cancelPurchasingHandler}
+          purchaseContinued={continuePurchasingHandler}
+          totalPrice={totalPrice}
+        />
+      </Modal> */}
+      {modalRenderPerformancer}
       <Burger ingredients={ingredients} />
       <BuildControls
         onRemoveIngredient={removeIngredientHandler}

@@ -3,6 +3,7 @@ import BackDrop from "../BackDrop/BackDrop";
 import classes from "./Modal.module.css";
 
 const Modal = ({ children, show, onClick }) => {
+
   return (
     <>
       <BackDrop show={show} onClick={onClick} />

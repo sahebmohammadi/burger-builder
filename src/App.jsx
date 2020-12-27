@@ -1,6 +1,6 @@
 import React from "react";
 // Presentational (Stateless) Components
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/hoc/Layout/Layout";
 // Containers (Statefull Components)
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 // Style
