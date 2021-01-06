@@ -4,7 +4,7 @@ import BuildControls from "../../components/Burger/BuilControls/BuildControls";
 import Burger from "../../components/Burger/Burger";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Modal from "./../../components/UI/Modal/Modal";
-
+import axios from "../../axiosOrders";
 // ? GLOBAL VARIABLE :
 const INGREDIENT_PRICES = {
   bacon: 1,
@@ -72,7 +72,9 @@ const BurgerBuilder = () => {
     setPurchasing(false);
   };
   const continuePurchasingHandler = () => {
-    alert("great! purchase continue ...");
+    // alert("great! purchase continue ...");
+
+    axios.post("/orders", ingredients);
   };
   //! DISABLE REMOVE BUTTON WITH NO INGREDIENT
   const disabledInfo = { ...ingredients };
